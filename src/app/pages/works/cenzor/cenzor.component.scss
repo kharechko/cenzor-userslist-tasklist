@@ -1,0 +1,43 @@
+.title{
+    min-height: 100px;
+  }
+  
+  .bad-words{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: rgb(167, 22, 22);
+    border: none;
+    background: inherit;
+  }
+  .subtitle{
+    font-size: 1.6rem;
+    font-weight: 400;
+    border: none;
+    background: inherit;
+    
+  }
+  
+  .container-fluid{
+      min-height: 40vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(35%, 90%);
+      textarea{
+          resize: none;   
+      }
+  }
+  
+  .valid{
+    border: 1px solid rgb(167, 22, 22);
+  }
+  
+  input::placeholder{
+    font-weight: 500;
+  }
+  
+
+  .replace-btn{
+      background-color: rgb(39, 7, 39);
+      color: white;
+  }

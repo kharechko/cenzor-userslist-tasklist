@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <h2>
+        Count of task: {{ taskCounter }}
+    </h2>
+    <br>
+
+    <form class="example-form" class="row d-flex justify-content-between align-items-center">
+        <mat-form-field class="col-11">
+          <mat-label>write a task</mat-label>
+          <input matInput placeholder="type here..."  [(ngModel)]="task" name="task">
+        </mat-form-field>
+        <button mat-fab color="primary" class="btn-color" (click)="addTask()">
+            <mat-icon>add</mat-icon>
+        </button>
+      </form>
+    <br>
+    <table class="table">
+        <thead>
+            <th>#</th>
+            <th>name</th>
+            <th>check</th>
+            <th>done/in progress</th>
+            <th>edit</th>
+            <th>delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of taskArray; let i = index">
+                <td>{{  i  + 1}}</td>
+                <td>{{ task.task }}</td>
+                <td>
+                    <mat-checkbox class="example-margin" color="primary" [checked]='task.isChecked' (change)='task.isChecked = !task.isChecked'></mat-checkbox>
+                </td>
+                <ng-container *ngIf="!task.isChecked; else inProgress">
+                    <td class="text-danger">
+                   in process
+                    </td>
+                </ng-container>
+                <ng-template #inProgress>
+                    <td class="text-success">
+                      done
+                    </td>
+                </ng-template>
+                
+                <td>
+                    <button mat-fab class="bg-warning borderless" (click)="editTask(i)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                </td>
+                <td>
+                    <button mat-fab class="bg-danger borderless" (click)="deleteTask()" [disabled]='!task.isChecked'>
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<ng-container *ngIf="isEdited">
+<form class="example-form" class="row d-flex justify-content-between align-items-center container-fluid col-9 mx-auto">
+    <mat-form-field class="col-11">
+      <mat-label>change your task</mat-label>
+      <input matInput placeholder="type here..."  [(ngModel)]="editedValue" name="editedValue">
+    </mat-form-field>
+    <button mat-fab color="primary" color='primary' (click)="saveEdited()" class="borderless">save</button>
+  </form>
+</ng-container>
+
+
+

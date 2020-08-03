@@ -1,0 +1,31 @@
+<div class="card-group d-flex justify-content-around align-items-center col-11">
+    <div class="card col-3">
+        <img class="card-img-top" src="./assets/images/cenzor.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Angular list of bad words</h5>
+          <a [routerLink]="[ '/works/cenzor' ]">
+            <button class="btn">see more</button>
+        </a>
+        </div>
+      </div>
+      <div class="card col-3">
+        <img class="card-img-top" src="./assets/images/user.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Angular list of users</h5>
+            <a [routerLink]="[ '/works/userlist' ]">
+                <button class="btn">see more</button>
+            </a>
+        </div>
+      </div>
+      <div class="card col-3" >
+        <img class="card-img-top" src="./assets/images/task.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Angular tasklist</h5>
+          <a [routerLink]="[ '/works/tasklist' ]">
+            <button class="btn">see more</button>
+         </a>
+        </div>
+      </div>
+</div>
+
+<router-outlet></router-outlet>

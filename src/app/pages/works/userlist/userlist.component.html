@@ -1,0 +1,55 @@
+
+<div class="row mx-auto">
+    
+    <div class="container col-5">
+        <form>
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" id="login" class="form-control" placeholder="Enter login" [(ngModel)]="login" name="login">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" id="password" class="form-control" placeholder="Enter password" [(ngModel)]="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="text" id="email" class="form-control" placeholder="Enter email" [(ngModel)]="email" name="email">
+            </div>
+
+            <ng-container *ngIf="isEdit; else update">
+                <button class="btn btn-add btn-block" (click)="addUser()">Add user</button>
+            </ng-container>
+
+            <ng-template #update>
+                <button class="btn btn-save btn-block" (click)="updateUser()">Save edit user</button>
+            </ng-template>
+            
+        </form>
+    </div>
+
+    <div class="container col-6">
+        <table class="table">
+            <thead>
+                <th>#</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tr *ngFor="let user of usersArray; let i = index">
+                <td> {{ i + 1 }} </td>
+                <td>{{ user.login }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="editUser(i)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteUser(i)" [disabled]='!isEdit'>Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
